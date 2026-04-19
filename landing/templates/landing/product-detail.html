@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ product.title }}
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="product-detail-section">
+    <div class="product-detail-shell">
+        <div class="product-detail-grid">
+            <div class="product-gallery">
+                {% if product.images.exists %}
+                    {% for product_image in product.images.all %}
+                        <img src="{{ product_image.image.url }}" alt="{{ product.title }}" class="product-detail-image">
+                    {% endfor %}
+                {% else %}
+                    <img src="{% static 'landing/images/default_product.PNG' %}" alt="no-image" class="product-detail-image product-detail-image--placeholder">
+                {% endif %}
+            </div>
+
+            <div class="product-summary">
+                <h1>{{ product.title }}</h1>
+                <p class="product-price">${{ product.price }}</p>
+
+                <ul class="product-meta">
+                    <li><strong>Seller:</strong> {{ product.seller.profile.display_name }}</li>
+                    <li><strong>Category:</strong> {{ product.category.name }}</li>
+                    <li><strong>Condition:</strong> {{ product.get_condition_display }}</li>
+                    <li><strong>Location:</strong> {{ product.get_location_display }}</li>
+                    <li>
+                        <strong>Status:</strong>
+                        {% if product.available %}
+                            Available
+                        {% else %}
+                            Sold
+                        {% endif %}
+                    </li>
+                </ul>
+
+                <div class="product-description">
+                    <h2>Description</h2>
+                    <p>{{ product.description|default:"No description provided." }}</p>
+                </div>
+
+                <form action="{% url 'toggle-favorite' product.id %}" method="post" class="favorite-form">
+                    {% csrf_token %}
+                    {% if is_favorite %}
+                        <button type="submit" class="btn-secondary">Remove from Favorites</button>
+                    {% else %}
+                        <button type="submit" class="btn-primary">Add to Favorites</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Page
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="dashboard-shell">
+        <div class="dashboard-header">
+            <h1>My Page</h1>
+            <p>Manage your account, uploads, and saved products.</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <article class="dashboard-card">
+                <h2>Account Info</h2>
+                <ul class="info-list">
+                    <li><strong>Display Name:</strong> {{ profile.display_name }}</li>
+                    <li><strong>First Name:</strong> {{ request.user.first_name|default:"-" }}</li>
+                    <li><strong>Last Name:</strong> {{ request.user.last_name|default:"-" }}</li>
+                    <li><strong>Email:</strong> {{ request.user.email }}</li>
+                </ul>
+            </article>
+
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h2>My Uploads</h2>
+                </div>
+
+                {% if uploaded_products %}
+                    <ul class="dashboard-list">
+                        {% for product in uploaded_products %}
+                            <li>
+                                <a href="{% url 'product-detail' product.slug %}">{{ product.title }}</a>
+                                <span>${{ product.price }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="empty-state">No uploaded products yet.</p>
+                {% endif %}
+            </article>
+
+            <article class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h2>My Favorites</h2>
+                </div>
+
+                {% if favorite_products %}
+                    <ul class="dashboard-list">
+                        {% for product in favorite_products %}
+                            <li>
+                                <a href="{% url 'product-detail' product.slug %}">{{ product.title }}</a>
+                                <span>${{ product.price }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="empty-state">No favorite products yet.</p>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

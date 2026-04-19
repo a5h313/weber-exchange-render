@@ -1,0 +1,11 @@
+title,price,category,condition,location,available,seller,image,description
+Wireless Keyboard (Mechanical),35.00,Electronics,good,shepherd-union,True,testUser00,keyboard.jpg,Keycaps slightly worn. Includes USB receiver.
+TI-84 Plus Calculator,55.00,School Supplies,excellent,shepherd-union,True,testUser01,ti84.jpg,Used for one semester. Comes with protective case.
+Desk Lamp (LED Adjustable),12.00,Furniture,good,shepherd-union,True,testUser02,lamp.jpg,Bright LED lamp. USB powered. Fully functional.
+CS Textbook: Operating Systems Concepts,25.00,Books,fair,shepherd-union,True,testUser03,book_os.jpg,Highlighting in early chapters. No missing pages.
+Mini Fridge (3.2 cu ft),60.00,Appliances,good,shepherd-union,True,testUser04,fridge.jpg,Works well. Minor exterior scratches. Pickup only.
+Winter Jacket (Men M),18.00,Clothing,good,shepherd-union,True,testUser05,jacket.jpg,Warm jacket. Clean interior. No damage.
+Bicycle Helmet (Size M),10.00,Transportation,excellent,shepherd-union,True,testUser06,helmet.jpg,Used twice. Clean padding and straps.
+Dorm Chair (Cushioned),15.00,Furniture,fair,shepherd-union,True,testUser07,chair.jpg,Fabric wear visible but frame is sturdy.
+Noise-Canceling Earbuds,40.00,Electronics,good,shepherd-union,False,testUser08,earbuds.jpg,Reserved. Includes charging case and ear tips.
+Backpack (Laptop 15in),20.00,School Supplies,good,shepherd-union,True,testUser09,backpack.jpg,Fits 15-inch laptop. Multiple compartments.

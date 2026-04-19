@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Marketplace
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="feedback-section">
+    <div class="feedback-shell">
+        <div class="feedback-header">
+            <h1>Marketplace</h1>
+            <p>Browse recent campus listings from Weber students.</p>
+        </div>
+
+        <div class="feedback-gallery">
+            {% for product in products %}
+                <article class="feedback-card">
+                    <div class="feedback-image-wrapper">
+                        {% with first_image=product.images.first %}
+                            {% if first_image %}
+                                <img src="{{ first_image.image.url }}"
+                                     alt="{{ product.title }}"
+                                     class="feedback-thumbnail">
+                            {% else %}
+                                <img src="{% static 'landing/images/default_product.PNG' %}"
+                                     alt="no-image"
+                                     class="feedback-thumbnail">
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <h3>
+                        {{ product.title }}
+                        {% if user.is_authenticated and product.id in favorite_ids %}
+                            ⭐
+                        {% endif %}
+                    </h3>
+
+                    <p>${{ product.price }}</p>
+                    <p>{{ product.category.name }}</p>
+
+                    <a class="feedback-link" href="{% url 'product-detail' product.slug %}">
+                        View Details
+                    </a>
+                </article>
+            {% empty %}
+                <p class="feedback-empty">No products available yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

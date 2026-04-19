@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Thank You
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+{% endblock %}
+        
+
+{% block content %}
+<section class="contact-section">
+    <div class="thanks-card">
+        <div class="thanks-icon">✓</div>
+
+        <div class="thanks-header">
+            <h1>Thank You</h1>
+            <p>Your feedback has been submitted successfully.</p>
+        </div>
+
+        <div class="thanks-actions">
+            <a href="{% url 'landing' %}" class="thanks-link">Back to Home</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+

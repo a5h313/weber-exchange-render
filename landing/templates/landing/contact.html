@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="contact-card">
+        <div class="contact-header">
+            <h1>Contact</h1>
+            <p>Please share your opinion</p>
+        </div>
+        <form action="" method="post" class="contact-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                <div class="form-errors">
+                    {{ field.errors }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+

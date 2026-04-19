@@ -1,0 +1,186 @@
+/* =========================
+   Weber Exchange – Base Styles
+   ========================= */
+
+:root {
+    --purple-main: #492365;
+    --gray-main: #4a494d;
+
+    --purple-rush: #70569e;
+    --grape-juice: #814d9d;
+    --bee-balm: #a275b3;
+    --lovely-lilac: #a595c4;
+
+    --soft-lavender: #d3c2df;
+    --frosted-thistle: #cbc3dc;
+    --purple-cloud: #f3eff6;
+    --snow-drift: #f3f0f4;
+
+    --text-primary: #2b2b2b;
+    --text-muted: #666666;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+
+    --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.08);
+    --radius-lg: 18px;
+    --radius-md: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--snow-drift);
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+main,
+.site-main {
+    flex: 1;
+}
+
+h1, h2, h3, h4 {
+    margin: 0 0 0.5em 0;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--purple-main);
+}
+
+p {
+    margin: 0 0 1em 0;
+    color: var(--text-muted);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--purple-rush);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(73, 35, 101, 0.96);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.site-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.95rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.brand-link {
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.site-nav a {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.site-nav a:hover,
+.brand-link:hover {
+    opacity: 0.9;
+}
+
+.nav-logout-form {
+    margin: 0;
+}
+
+.nav-button {
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: transparent;
+    color: white;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.site-footer {
+    background-color: var(--gray-main);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.site-footer p {
+    margin: 0;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-right {
+        width: 100%;
+        gap: 0.75rem;
+    }
+}
