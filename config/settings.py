@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-5d@=umf#=b4*hpkm(x2^$n0tz0dc%juf&$*g0_gseut5ji@vf!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['weber-exchange.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
