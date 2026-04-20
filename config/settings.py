@@ -79,10 +79,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        default='postgres://postgres:postgres@localhost:5432/weber_exchange'
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'temp_db',
+    }
+    # 'default': dj_database_url.config(
+    #     conn_max_age=600,
+    #     default='postgres://postgres:postgres@localhost:5432/weber_exchange'
+    # )
 
 }
 
